@@ -13,4 +13,8 @@ public class User {
     public User() {
         System.out.println("init user");
     }
+
+    public void sout() {
+        System.out.println("哈哈");
+    }
 }
