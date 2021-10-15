@@ -1,4 +1,4 @@
-package com.zyb;
+package com.zyb.jmm;
 
 /**
  * @author :Z1084

@@ -1,4 +1,4 @@
-package com.zyb;
+package com.zyb.jmm;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
