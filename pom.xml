@@ -10,6 +10,7 @@
     <modules>
         <module>jvm</module>
         <module>jmm-specification</module>
+        <module>thread-concurrent</module>
     </modules>
     <packaging>pom</packaging>
 

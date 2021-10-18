@@ -13,8 +13,8 @@ public class ArrayBlockingQueueDemo {
     public static void main(String[] args) throws InterruptedException {
         //ArrayBlockingQueue(int capacity, boolean fair),第一个参数设置队列的容量，第二个参数设置底层使用的ReentrantLock时公平锁还是非公平锁
         BlockingQueue<String> queue = new ArrayBlockingQueue(1);
-//        addAndRemove(queue);
-//        putAndTake(queue);
+//        addAndRemove(com.zyb.queue);
+//        putAndTake(com.zyb.queue);
         offerAndPoll(queue);
     }
 
