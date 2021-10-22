@@ -4,7 +4,8 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 
 /**
  * @author :Z1084
- * @description :
+ * @description :使用cas修改实体类数组里面的某一个实体类。这里也是，只修改atomicReferenceArray里面的，不修改真实的。
+ * this.array = Arrays.copyOf(array, array.length, Object[].class);
  * @create :2021-10-21 16:23:28
  */
 public class AtomicReferenceArrayRunner {
