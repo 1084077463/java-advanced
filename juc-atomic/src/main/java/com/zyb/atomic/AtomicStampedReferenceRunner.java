@@ -3,6 +3,7 @@ package com.zyb.atomic;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicStampedReference;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * @author :Z1084
@@ -32,7 +33,7 @@ public class AtomicStampedReferenceRunner {
             log.info(reference.compareAndSet(2, 1, stamp, stamp + 1) + "");
         }, "B");
         t0.start();
-        Thread.sleep(300);
+        LockSupport.parkNanos(1000000);
         t1.start();
     }
 }
