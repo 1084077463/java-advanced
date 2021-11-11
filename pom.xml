@@ -12,6 +12,7 @@
         <module>jmm-specification</module>
         <module>thread-concurrent</module>
         <module>juc-atomic</module>
+        <module>juc-collections</module>
     </modules>
     <packaging>pom</packaging>
 
