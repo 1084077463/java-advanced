@@ -13,6 +13,7 @@
         <module>thread-concurrent</module>
         <module>juc-atomic</module>
         <module>juc-collections</module>
+        <module>tcp-bio</module>
     </modules>
     <packaging>pom</packaging>
 
