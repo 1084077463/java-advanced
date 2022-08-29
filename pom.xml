@@ -16,6 +16,7 @@
         <module>tcp-bio</module>
         <module>tcp-nio</module>
         <module>tcp-aio</module>
+        <module>netty-demo</module>
     </modules>
     <packaging>pom</packaging>
 
