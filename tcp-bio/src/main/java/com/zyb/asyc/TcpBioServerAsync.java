@@ -1,4 +1,4 @@
-package com.zyb;
+package com.zyb.asyc;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
@@ -13,13 +13,13 @@ import java.net.Socket;
  * 每创建一个socket就启动一个线程去进行操作，如果客户端数据较多时，容易将cpu跑满。这也就是为啥会退出轮询的模式来进行操作。
  * @create：2022-07-18 17:51
  */
-public class TcpServer {
+public class TcpBioServerAsync {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8000);
         while (true) {
             Socket socket = serverSocket.accept();
             System.out.println("有新连接：" + socket.getRemoteSocketAddress().toString() + ",端口:" + socket.getPort());
-            SocketThread socketThread = new TcpServer.SocketThread(socket);
+            SocketThread socketThread = new TcpBioServerAsync.SocketThread(socket);
             socketThread.start();
 
         }

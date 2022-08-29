@@ -14,6 +14,8 @@
         <module>juc-atomic</module>
         <module>juc-collections</module>
         <module>tcp-bio</module>
+        <module>tcp-nio</module>
+        <module>tcp-aio</module>
     </modules>
     <packaging>pom</packaging>
 
