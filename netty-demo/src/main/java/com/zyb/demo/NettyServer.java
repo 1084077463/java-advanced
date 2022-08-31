@@ -26,7 +26,7 @@ public class NettyServer {
                     .channel(NioServerSocketChannel.class)//使用NioServerSocketChannel作为服务器的通道实现
                     //初始化服务器连接队列的大小，服务端处理客户端的连接请求是按顺序执行的，所以同一时间只能处理一个连接，
                     // 那么其他的连接同时需要连接时，那么就需要先放到队列里面，等待连接
-                    .childOption(ChannelOption.SO_BACKLOG, 1024)
+                    .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new ChannelInitializer<SocketChannel>() {//创建通道初始化对象，设置初始化参数
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
