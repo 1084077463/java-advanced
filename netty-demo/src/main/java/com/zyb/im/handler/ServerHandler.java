@@ -24,6 +24,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        System.out.println(msg);
         //给其他的客户端发送消息
         channelGroup.forEach(channel -> {
             if (!ctx.channel().equals(channel)) {

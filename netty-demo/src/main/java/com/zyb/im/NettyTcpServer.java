@@ -8,6 +8,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
@@ -28,6 +29,12 @@ public class NettyTcpServer {
                     .childHandler(new ChannelInitializer<NioSocketChannel>() {
                         @Override
                         protected void initChannel(NioSocketChannel ch) throws Exception {
+                            //为了防止粘包的问题，我们可以使用LineBasedFrameDecoder这个是回车换行符。不过真实业务比较少用这种
+                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                            //还有一种定义消息的长度，固定长度，空的用空格或者其他方式补全。
+                            //ch.pipeline().addLast(new FixedLengthFrameDecoder(100));
+                            //这个是固定结尾的方式进行切割，类似交通部的协议就是这样的
+                            //ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer("1".getBytes())));
                             ch.pipeline().addLast(new StringDecoder());
 
                             ch.pipeline().addLast(new ServerHandler());

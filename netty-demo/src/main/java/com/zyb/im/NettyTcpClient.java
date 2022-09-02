@@ -11,7 +11,6 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 import java.net.InetSocketAddress;
-import java.util.Scanner;
 
 /**
  * @author：Z1084
@@ -37,13 +36,18 @@ public class NettyTcpClient {
             ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress("127.0.0.1", 8000)).sync();
             Channel channel = channelFuture.channel();
             //创建一个扫描器,用来读取控制台写入的数据
-            Scanner scanner = new Scanner(System.in);
+            /*Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String msg = scanner.nextLine();
                 channel.writeAndFlush(msg);
+            }*/
+            //当突然频繁的发送数据，就会造成粘包的问题
+            for (int i = 0; i < 100; i++) {
+                channel.writeAndFlush("hello i'm client!" + i + "\n");
+                // TimeUnit.SECONDS.sleep(1);
             }
             //监听关闭的通知消息
-            //channel.closeFuture().sync();
+            channel.closeFuture().sync();
         } finally {
             group.shutdownGracefully();
         }
